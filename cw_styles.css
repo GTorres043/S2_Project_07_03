@@ -17,51 +17,65 @@
 
 
 /* Import Basic Design Styles  */
+
+/* this small piece will import the designs styles to the webpage. */
 @import url("cw_designs.css");
 
 /* ===============================
 	General Styles for All Devices
    ===============================
 */
-nav#bottom ul li {
+
+/*this will display the navigation list with the id bottom as a webkit flec and give it a flex flow of row no wrap and center   */
+nav#bottom {
     display: -webkit-flex;
     display: flex;
     -webkit-flex-flow: row nowrap;
     flex-flow: row nowrap;
     justify-content: center;
-    flex: 150px;
 }
 
-/* body {
-    background: linear-gradient(315deg, rgba(73, 73, 73, 0.7)35%, rgba(73, 73, 255, 0.6) 63%);
-} */
+nav#bottom ul {
+    max-width: 150px;
+    -webkit-flex: 1;
+    flex: 1;
+}
 
 /* ===============================
 	Mobile Styles up to 480 pixels
    ===============================
 */
 
+/* this will give styles to the screens with a max width of 480px. giving it a collor of white and a black.  the aside, article image, and section with the id spotlight will not be displayed */
 @media only screen and (max-width: 480px) {
     body {
         color: rgb(211, 211, 211);
         background-color: rgb(51, 51, 51);
     }
 
-    aside img>article section#spotlight {
+    aside,
+    article img,
+    section#spotlight {
         display: none;
     }
 
+    /* this will display the top navigation list as a flex and give it a flexflow of row wrap. also giving the list items a font size of 2.2em. */
     nav#top ul {
-        display: -webkit-flex;
         display: flex;
+        display: -webkit-flex;
         -webkit-flex-flow: row wrap;
         flex-flow: row wrap;
+    }
+
+    nav#top ul li {
         font-size: 2.2em;
+        -webkit-flex: 1 1 130px;
         flex: 1 1 130px;
     }
 
+    /* these few lines of code do the same thing for every picture making them a idth of 100% witch will make them shrink to the size the page asks */
     nav#top ul li:nth-of-type(1) {
-        background: url(cw_image01.png) no-repeat fixed;
+        background: url(cw_image01.png) no-repeat;
         width: 100%;
     }
 
@@ -90,23 +104,24 @@ nav#bottom ul li {
         width: 100%;
     }
 
-    nav#top ul li:nth-of-type(7) {
-        background: url(cw_image07.png) no-repeat;
-        width: 100%;
-    }
+}
 
-    p#links {
-        display: flex;
-        display: -webkit-flex;
-        flex-flow: nowrap;
-        justify-content: space-around;
-    }
+/* this will give the paragraph elements with the links id a display of flex anf a flow of row nowrap. also justify the content to space around  */
+p#links {
+    display: flex;
+    display: -webkit-flex;
+    -webkit-flex-flow: row nowrap;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+}
 
-    p#links a {
-        color: rgb(220, 27, 27);
-        border-radius: 20px 10px;
-        text-decoration: none;
-    }
+/* this will give the links embeded in the paragragh elements a color of white and background color of red and a border radius 20px 10px and a padding of 10px.    */
+p#links a {
+    color: white;
+    background-color: rgb(220, 27, 27);
+    border-radius: 20px 10px;
+    padding: 10px;
+    text-decoration: none;
 }
 
 /* ============================================
@@ -117,5 +132,39 @@ nav#bottom ul li {
 @media only screen and (min-width: 481px) {
     body {
         display: flex;
+        display: -webkit-flex;
+        -webkit-flex-flow: row wrap;
+        flex-flow: row wrap;
+    }
+
+    article {
+        -webkit-flex: 2 1 400px;
+        flex: 2 1 400px;
+    }
+
+    aside {
+        -webkit-flex: 1 2 200px;
+        flex: 1 2 200px;
+    }
+
+    nav#top ul {
+        display: flex;
+        display: -webkit-flex;
+        flex-direction: row;
+        -webkit-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        background-color: rgb(51, 51, 51);
+        height: 50px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    nav#top ul li {
+        -webkit-flex: 0 1 80px;
+        flex: 0 1 80px;
+    }
+
+    p#links {
+        display: none;
     }
 }
